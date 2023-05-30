@@ -6,4 +6,9 @@
 
 html {
   font-size: 62.5%;
+  font-family: "Oswald", sans-serif;
+}
+
+a {
+  text-decoration: none;
 }
