@@ -5,16 +5,18 @@ const Form = styled.form`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-right: 2rem;
-  padding: 1rem;
+  padding: 1rem 10rem;
   background-color: #ebe7e7;
 `;
 
 const Input = styled.input`
   border: none;
-  border-radius: 0.1rem;
-  font-weight: 400;
-  padding: 0.1rem;
+  border-radius: 0.3rem;
+  font-size: 1.8rem;
+  padding: 1rem;
+  height: 6rem;
+  width: 30rem;
+  background-color: white;
 `;
 
 export const Search = () => {
