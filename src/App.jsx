@@ -34,12 +34,12 @@ function App() {
   return (
     <>
       <HashRouter>
+        <Header />
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <Header />
                 <Search
                   search={search}
                   handleFilterModelOrBrand={handleFilterModelOrBrand}
