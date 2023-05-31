@@ -30,7 +30,10 @@ export const ProductsList = (props) => {
       return props.products.map((item) => {
         return (
           <ProductItemContainer key={item.id}>
-            <ProductItem item={item} />
+            <ProductItem
+              item={item}
+              updateCurrentPage={props.updateCurrentPage}
+            />
           </ProductItemContainer>
         );
       });

@@ -50,7 +50,10 @@ function App() {
                   search={search}
                   handleFilterModelOrBrand={handleFilterModelOrBrand}
                 />
-                <ProductsList products={productsFiltered} />
+                <ProductsList
+                  products={productsFiltered}
+                  updateCurrentPage={updateCurrentPage}
+                />
               </>
             }
           />

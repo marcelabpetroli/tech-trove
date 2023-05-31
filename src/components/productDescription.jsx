@@ -17,7 +17,6 @@ const Item = styled.li`
 `;
 
 export const ProductDescription = (props) => {
-  console.log(props);
   return (
     <>
       <Article>

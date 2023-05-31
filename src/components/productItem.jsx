@@ -23,9 +23,9 @@ const Image = styled.img`
   height: auto;
   margin-top: 1rem;
   border-radius: 20%;
+  transition: all 0.3s;
 
   &:hover {
-    border: 0.1rem solid #c5c5c5;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   }
 `;
@@ -37,10 +37,14 @@ const Price = styled.h3`
   text-align: center;
 `;
 
-export const ProductItem = ({ item }) => {
+export const ProductItem = ({ item, updateCurrentPage }) => {
+  const handleClick = () => {
+    updateCurrentPage(item.model);
+  };
+
   return (
     <>
-      <Link to={`/item/${item.id}`}>
+      <Link to={`/item/${item.id}`} onClick={handleClick}>
         <article>
           <Brand>
             {item.brand} - {item.model}

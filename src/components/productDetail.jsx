@@ -3,6 +3,7 @@ import { PageNotFound } from "./pageNotFound";
 import styled from "styled-components";
 import { ProductImage } from "./productImage";
 import { ProductDescription } from "./productDescription";
+import { ProductActions } from "./productActions";
 
 const DetailsSection = styled.section`
   display: flex;
@@ -38,15 +39,12 @@ const StyledLink = styled(Link)`
 export const ProductDetail = (props) => {
   const params = useParams();
   const productSelected = props.selectedProduct(params.id);
+  const handleClick = () => {
+    props.updateCurrentPage("HOME");
+  };
 
   const renderDetails = () => {
-    const handleResetCurrPage = () => {
-      props.updateCurrentPage("HOME");
-    };
-
     if (productSelected !== undefined) {
-      props.updateCurrentPage(productSelected.model);
-
       return (
         <DetailsSection>
           <DetailsContent>
@@ -55,9 +53,10 @@ export const ProductDetail = (props) => {
               productDetail={props.productDetail}
               productSelected={productSelected}
             />
+            <ProductActions productDetail={props.productDetail} />
           </DetailsContent>
 
-          <StyledLink to="/" onClick={handleResetCurrPage}>
+          <StyledLink to="/" onClick={handleClick}>
             Go back
           </StyledLink>
         </DetailsSection>
