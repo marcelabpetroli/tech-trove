@@ -10,13 +10,14 @@ const DetailsSection = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   background-color: #ededed;
+  height: 80vh;
 `;
 
 const DetailsContent = styled.div`
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 15rem;
 `;
 
@@ -29,6 +30,7 @@ const StyledLink = styled(Link)`
   background-color: #c8d4e3;
   padding: 2rem;
   border-radius: 5rem;
+  transition: all 0.3s;
 
   &:hover {
     color: #c8d4e3;
@@ -49,11 +51,13 @@ export const ProductDetail = (props) => {
         <DetailsSection>
           <DetailsContent>
             <ProductImage />
-            <ProductDescription
-              productDetail={props.productDetail}
-              productSelected={productSelected}
-            />
-            <ProductActions productDetail={props.productDetail} />
+            <div>
+              <ProductDescription
+                productDetail={props.productDetail}
+                productSelected={productSelected}
+              />
+              <ProductActions productDetail={props.productDetail} />
+            </div>
           </DetailsContent>
 
           <StyledLink to="/" onClick={handleClick}>
