@@ -1,5 +1,5 @@
 import "./styles/App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./components/header";
 import { Search } from "./components/search";
@@ -7,13 +7,14 @@ import { ProductsList } from "./components/productsList";
 import { ProductDetail } from "./components/productDetail";
 import data from "./fixtures/products.json";
 import detailData from "./fixtures/single-product.json";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 function App() {
   const [products, setProducts] = useState(data);
   const [search, setSearch] = useState("");
   const [productDetail, setProductDetail] = useState(detailData);
   const [currentPage, setCurrentPage] = useState("HOME");
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useLocalStorage("cartItems", []);
 
   const productsFiltered = products
     .filter(
@@ -40,15 +41,7 @@ function App() {
   const handleAddToCart = (id) => {
     const updatedCartItems = [...cartItems, id];
     setCartItems(updatedCartItems);
-    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
   };
-
-  useEffect(() => {
-    const storedCartItems = localStorage.getItem("cartItems");
-    if (storedCartItems) {
-      setCartItems(JSON.parse(storedCartItems));
-    }
-  }, []);
 
   return (
     <>
