@@ -6,7 +6,12 @@ const Form = styled.form`
   align-items: center;
   justify-content: flex-end;
   padding: 1rem 10rem;
-  background-color: #ebe7e7;
+`;
+
+const Label = styled.label`
+  font-weight: 500;
+  font-size: 4rem;
+  padding-right: 2rem;
 `;
 
 const Input = styled.input`
@@ -25,7 +30,7 @@ export const Search = (props) => {
   };
   return (
     <Form>
-      <label htmlFor="search"></label>
+      <Label htmlFor="search">Search:</Label>
       <Input
         type="text"
         name="search"

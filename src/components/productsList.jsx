@@ -19,7 +19,7 @@ const ProductItemContainer = styled.li`
 
 const NoResults = styled.p`
   width: 100vw;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 3rem;
   text-align: center;
 `;
