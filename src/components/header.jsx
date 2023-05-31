@@ -29,6 +29,19 @@ const Title = styled.h1`
   margin-left: 15rem;
 `;
 
+const CartContainer = styled.div`
+  display: flex;
+`;
+
+const Cart = styled.p`
+  font-size: 2rem;
+  color: #213746;
+  background-color: #ebebeb;
+  width: 3.5rem;
+  text-align: center;
+  border-radius: 5rem;
+`;
+
 const Breadcrumbs = styled.p`
   font-size: 3rem;
   font-weight: 500;
@@ -36,7 +49,7 @@ const Breadcrumbs = styled.p`
 `;
 
 const CartIcon = styled.i`
-  font-size: 4rem;
+  font-size: 3rem;
   color: #213746;
   margin-right: 10rem;
 `;
@@ -48,7 +61,10 @@ export const Header = (props) => {
         <Title>TechTrove</Title>
       </StyledLink>
       <Breadcrumbs>{props.currentPage}</Breadcrumbs>
-      <CartIcon className="fa-solid fa-cart-shopping"></CartIcon>
+      <CartContainer>
+        <Cart>{props.cartItems.length}</Cart>
+        <CartIcon className="fa-solid fa-cart-shopping"></CartIcon>
+      </CartContainer>
     </HeaderContainer>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import phone from "../assets/acer-phone.jpg";
 
 const Brand = styled.h2`
   font-size: 2.2rem;
@@ -50,7 +51,7 @@ export const ProductItem = ({ item, updateCurrentPage }) => {
             {item.brand} - {item.model}
           </Brand>
           <div>
-            <Image src="../src/assets/acer-phone.jpg" alt="Acer smartphone" />
+            <Image src={phone} alt="Acer smartphone" />
           </div>
           <Price>Price {item.price}€</Price>
         </article>

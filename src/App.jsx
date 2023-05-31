@@ -13,6 +13,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [productDetail, setProductDetail] = useState(detailData);
   const [currentPage, setCurrentPage] = useState("HOME");
+  const [cartItems, setCartItems] = useState([]);
 
   const productsFiltered = products
     .filter(
@@ -36,10 +37,14 @@ function App() {
     setCurrentPage(value);
   };
 
+  const handleAddToCart = (id) => {
+    setCartItems([...cartItems, id]);
+  };
+
   return (
     <>
       <HashRouter>
-        <Header currentPage={currentPage} />
+        <Header currentPage={currentPage} cartItems={cartItems} />
 
         <Routes>
           <Route
@@ -65,6 +70,7 @@ function App() {
                 productDetail={productDetail}
                 selectedProduct={selectedProduct}
                 updateCurrentPage={updateCurrentPage}
+                handleAddToCart={handleAddToCart}
               />
             }
           />

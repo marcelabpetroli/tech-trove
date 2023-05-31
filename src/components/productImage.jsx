@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import phone from "../assets/acer-phone.jpg";
 
 const ProductImgContainer = styled.div`
   height: 400px;
@@ -16,7 +17,7 @@ export const ProductImage = () => {
     <>
       <ProductImgContainer>
         <ProductImg
-          src="../src/assets/acer-phone.jpg"
+          src={phone}
           alt="Photo of smartphone"
           title="Photo of smartphone"
         />

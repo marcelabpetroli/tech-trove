@@ -56,7 +56,10 @@ export const ProductDetail = (props) => {
                 productDetail={props.productDetail}
                 productSelected={productSelected}
               />
-              <ProductActions productDetail={props.productDetail} />
+              <ProductActions
+                productDetail={props.productDetail}
+                handleAddToCart={props.handleAddToCart}
+              />
             </div>
           </DetailsContent>
 
