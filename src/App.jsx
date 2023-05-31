@@ -12,6 +12,7 @@ function App() {
   const [products, setProducts] = useState(data);
   const [search, setSearch] = useState("");
   const [productDetail, setProductDetail] = useState(detailData);
+  const [currentPage, setCurrentPage] = useState("HOME");
 
   const productsFiltered = products
     .filter(
@@ -31,10 +32,15 @@ function App() {
     return products.find((prod) => prod.id === id);
   };
 
+  const updateCurrentPage = (value) => {
+    setCurrentPage(value);
+  };
+
   return (
     <>
       <HashRouter>
-        <Header />
+        <Header currentPage={currentPage} />
+
         <Routes>
           <Route
             path="/"
@@ -55,6 +61,7 @@ function App() {
               <ProductDetail
                 productDetail={productDetail}
                 selectedProduct={selectedProduct}
+                updateCurrentPage={updateCurrentPage}
               />
             }
           />

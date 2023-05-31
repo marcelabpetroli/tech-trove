@@ -40,7 +40,13 @@ export const ProductDetail = (props) => {
   const productSelected = props.selectedProduct(params.id);
 
   const renderDetails = () => {
+    const handleResetCurrPage = () => {
+      props.updateCurrentPage("HOME");
+    };
+
     if (productSelected !== undefined) {
+      props.updateCurrentPage(productSelected.model);
+
       return (
         <DetailsSection>
           <DetailsContent>
@@ -51,7 +57,9 @@ export const ProductDetail = (props) => {
             />
           </DetailsContent>
 
-          <StyledLink to="/">Go back</StyledLink>
+          <StyledLink to="/" onClick={handleResetCurrPage}>
+            Go back
+          </StyledLink>
         </DetailsSection>
       );
     } else {
