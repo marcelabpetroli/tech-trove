@@ -1,3 +1,4 @@
+import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { PageNotFound } from "./pageNotFound";
 import styled from "styled-components";

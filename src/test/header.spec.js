@@ -1,21 +1,25 @@
 import React from "react";
+import { describe, it, expect } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
-import { Header } from "../components/header.jsx";
+import "@testing-library/jest-dom";
+import { Header } from "../components/header";
 import { HashRouter } from "react-router-dom";
 
-const renderWithRouter = () => {
+const renderWithRouter = (currentPage, cartItems) => {
   render(
     <HashRouter>
-      <Header />
+      <Header currentPage={currentPage} cartItems={cartItems} />
     </HashRouter>
   );
 };
-describe("header spec", () => {
+
+describe("Header component specs", () => {
   it("should find the title", () => {
-    renderWithRouter(<Header />);
+    renderWithRouter(2, []);
 
     const element = screen.getByRole("heading", { name: "TechTrove" });
 
+    expect(element).toBeInTheDocument();
     expect(element.tagName).toEqual("H1");
   });
 });

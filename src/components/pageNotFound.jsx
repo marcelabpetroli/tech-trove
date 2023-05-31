@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import pageNotFound from "../assets/page-not-found.png";
 import styled from "styled-components";

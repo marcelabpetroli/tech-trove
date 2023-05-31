@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { Search } from "../components/search.jsx";
 import "@testing-library/jest-dom/extend-expect";
 
@@ -14,5 +14,16 @@ describe("Search component", () => {
 
     expect(inputElement).toBeInTheDocument();
     expect(inputPlaceholder).toBeInTheDocument();
+  });
+
+  it("should write search query", () => {
+    const query = "query";
+
+    render(<Search />);
+
+    const inputElement = screen.getByRole("textbox");
+    fireEvent.change(inputElement, { target: { value: query } });
+
+    expect(inputElement.value).toContain(query);
   });
 });

@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import phone from "../assets/acer-phone.jpg";
 

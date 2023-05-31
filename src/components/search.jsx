@@ -12,6 +12,7 @@ const Label = styled.label`
   font-weight: 500;
   font-size: 4rem;
   padding-right: 2rem;
+  color: #323232;
 `;
 
 const Input = styled.input`

@@ -62,7 +62,11 @@ export const Header = (props) => {
       </StyledLink>
       <Breadcrumbs>{props.currentPage}</Breadcrumbs>
       <CartContainer>
-        <Cart>{props.cartItems.length}</Cart>
+        <Cart aria-label="cart">
+          {props.cartItems && props.cartItems.length === 0
+            ? ""
+            : props.cartItems.length}
+        </Cart>
         <CartIcon className="fa-solid fa-cart-shopping"></CartIcon>
       </CartContainer>
     </HeaderContainer>

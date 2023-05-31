@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 import phone from "../assets/acer-phone.jpg";
+import styled from "styled-components";
 
 const Brand = styled.h2`
   font-size: 2.2rem;
@@ -31,9 +31,9 @@ const Image = styled.img`
   }
 `;
 
-const Price = styled.h3`
+const Price = styled.p`
   font-size: 1.8rem;
-  color: #242424;
+  color: #323232;
   text-transform: uppercase;
   text-align: center;
 `;
