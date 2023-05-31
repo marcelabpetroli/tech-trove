@@ -19,7 +19,10 @@ const Input = styled.input`
   background-color: white;
 `;
 
-export const Search = () => {
+export const Search = (props) => {
+  const handleInput = (e) => {
+    props.handleFilterModelOrBrand(e.target.value);
+  };
   return (
     <Form>
       <label htmlFor="search"></label>
@@ -28,6 +31,8 @@ export const Search = () => {
         name="search"
         id="search"
         placeholder="Ex: Acer or Liquid Jade Z"
+        onInput={handleInput}
+        value={props.search}
       />
     </Form>
   );
