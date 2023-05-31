@@ -80,10 +80,15 @@ Error generating stack: `+o.message+`
   justify-content: space-between;
   gap: 10rem;
   background-color: #cbcbe5;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 0.5rem;
 `,bg=te(So)`
   text-decoration: none;
 `,e0=te.h1`
-  font-size: 6rem;
+  font-size: 4rem;
   color: #213746;
   padding: 2.8rem;
   letter-spacing: 0.2rem;
