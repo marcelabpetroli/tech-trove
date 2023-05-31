@@ -7,7 +7,7 @@ const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
   gap: 10rem;
-  background-color: #cbcbe5;
+  background-color: #cbd8e9;
   position: sticky;
   top: 0;
   left: 0;

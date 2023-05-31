@@ -9,12 +9,36 @@ const ResultsContainer = styled.ul`
   justify-content: flex-start;
   margin: 5rem 15rem;
   row-gap: 5rem;
+
+  @media (max-width: 1200px) {
+    margin: 5rem 10rem;
+  }
+
+  @media (max-width: 900px) {
+    margin: 5rem 5rem;
+  }
+
+  @media (max-width: 600px) {
+    margin: 5rem 2rem;
+  }
 `;
 
 const ProductItemContainer = styled.li`
   width: calc(25% - 20px);
   margin: 10px;
   list-style: none;
+
+  @media (max-width: 1200px) {
+    width: calc(33.33% - 20px);
+  }
+
+  @media (max-width: 900px) {
+    width: calc(50% - 20px);
+  }
+
+  @media (max-width: 600px) {
+    width: calc(100% - 20px);
+  }
 `;
 
 const NoResults = styled.p`

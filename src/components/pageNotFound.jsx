@@ -7,12 +7,12 @@ const NotFoundSection = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-color: #8fabb3;
+  margin-top: 10rem;
 `;
 
 const NotFoundImage = styled.img`
-  border-radius: 30rem;
+  border-radius: 1rem;
+  opacity: 0.8;
 `;
 
 const NotFoundParagraph = styled.p`
@@ -20,13 +20,18 @@ const NotFoundParagraph = styled.p`
   margin-top: 10rem;
   color: #274b5c;
   font-weight: 700;
+  transition: all 0.3s;
 
   &:hover {
-    color: #12242c;
+    color: #4684a1;
   }
 `;
 
-export const PageNotFound = () => {
+export const PageNotFound = (props) => {
+  const handleClick = () => {
+    props.updateCurrentPage("HOME");
+  };
+
   return (
     <NotFoundSection>
       <NotFoundImage
@@ -36,7 +41,9 @@ export const PageNotFound = () => {
       />
 
       <Link to={"/"}>
-        <NotFoundParagraph>Go back to main page</NotFoundParagraph>
+        <NotFoundParagraph onClick={handleClick}>
+          Go back to main page
+        </NotFoundParagraph>
       </Link>
     </NotFoundSection>
   );

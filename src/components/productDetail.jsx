@@ -69,7 +69,7 @@ export const ProductDetail = (props) => {
         </DetailsSection>
       );
     } else {
-      return <PageNotFound />;
+      return <PageNotFound updateCurrentPage={props.updateCurrentPage} />;
     }
   };
 
