@@ -1,5 +1,5 @@
 import "./styles/App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./components/header";
 import { Search } from "./components/search";
@@ -38,8 +38,17 @@ function App() {
   };
 
   const handleAddToCart = (id) => {
-    setCartItems([...cartItems, id]);
+    const updatedCartItems = [...cartItems, id];
+    setCartItems(updatedCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
   };
+
+  useEffect(() => {
+    const storedCartItems = localStorage.getItem("cartItems");
+    if (storedCartItems) {
+      setCartItems(JSON.parse(storedCartItems));
+    }
+  }, []);
 
   return (
     <>
