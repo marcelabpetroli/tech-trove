@@ -276,7 +276,7 @@ Error generating stack: `+o.message+`
   font-weight: 300;
 `,B0=H.option`
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 500;
   margin-top: 3rem;
   color: #c8d4e3;
@@ -285,7 +285,6 @@ Error generating stack: `+o.message+`
   border-radius: 10rem;
   width: 10rem;
   text-align: center;
-  align-self: flex-end;
   cursor: pointer;
   transition: all 0.3s;
 
@@ -307,7 +306,7 @@ Error generating stack: `+o.message+`
   gap: 15rem;
 `,Q0=H(xo)`
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 500;
   margin-top: 3rem;
   color: #274b5c;
