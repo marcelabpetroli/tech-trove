@@ -1,5 +1,5 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./styles/App.css";
 /* Components */
 import { Header } from "./components/header";
@@ -10,29 +10,16 @@ import { ProductDetail } from "./components/productDetail";
 import detailData from "./fixtures/single-product.json";
 /* Use cases */
 import { FilterProducts } from "./usecases/filter-products.usecase";
-import { LoadProductsUseCase } from "./usecases/load-products.usecase";
 /* Custom Hooks */
 import { useLocalStorage } from "./hooks/useLocalStorage";
+import { useFetchProducts } from "./hooks/useFetchProducts";
 
 function App() {
-  const [products, setProducts] = useState([]);
+  const products = useFetchProducts();
   const [search, setSearch] = useState("");
   const [productDetail, setProductDetail] = useState(detailData);
   const [currentPage, setCurrentPage] = useState("Home");
   const [cartItems, setCartItems] = useLocalStorage("cartItems", []);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const products = await LoadProductsUseCase.execute();
-        setProducts(products);
-      } catch (error) {
-        console.error("Error:", error.message);
-      }
-    };
-
-    fetchProducts();
-  }, []);
 
   const productsFiltered = FilterProducts.execute(products, search);
 
