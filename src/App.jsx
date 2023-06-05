@@ -1,12 +1,17 @@
-import "./styles/App.css";
-import { useState } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import "./styles/App.css";
+/* Components */
 import { Header } from "./components/header";
 import { Search } from "./components/search";
 import { ProductsList } from "./components/productsList";
 import { ProductDetail } from "./components/productDetail";
+/* Fixtures */
 import data from "./fixtures/products.json";
 import detailData from "./fixtures/single-product.json";
+/* Use cases */
+import { filterProducts } from "./usecases/filter-products.usecase";
+/* Custom Hooks */
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
 function App() {
@@ -16,15 +21,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState("Home");
   const [cartItems, setCartItems] = useLocalStorage("cartItems", []);
 
-  const productsFiltered = products
-    .filter(
-      (prod) =>
-        prod.brand.toLowerCase().includes(search.toLowerCase()) ||
-        prod.model.toLowerCase().includes(search.toLowerCase())
-    )
-    .sort(function (a, b) {
-      return a.brand.localeCompare(b.brand) || a.model.localeCompare(b.model);
-    });
+  const productsFiltered = filterProducts(products, search);
 
   const handleFilterModelOrBrand = (value) => {
     setSearch(value);
