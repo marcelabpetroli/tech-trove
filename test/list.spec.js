@@ -3,8 +3,8 @@ import { describe, it, expect } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { HashRouter } from "react-router-dom";
-import { ProductsList } from "../components/productsList";
-import data from "../fixtures/products.json";
+import { ProductsList } from "../src/components/productsList";
+import data from "../src/fixtures/products.json";
 
 const renderWithRouter = (products, updateCurrentPage) => {
   render(

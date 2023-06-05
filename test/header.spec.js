@@ -2,7 +2,7 @@ import React from "react";
 import { describe, it, expect } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { Header } from "../components/header";
+import { Header } from "../src/components/header";
 import { HashRouter } from "react-router-dom";
 
 const renderWithRouter = (currentPage, cartItems) => {

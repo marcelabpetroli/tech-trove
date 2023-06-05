@@ -1,6 +1,6 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { Search } from "../components/search.jsx";
+import { Search } from "../src/components/search.jsx";
 import "@testing-library/jest-dom/extend-expect";
 
 describe("Search component", () => {

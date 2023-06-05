@@ -13,7 +13,7 @@ function App() {
   const [products, setProducts] = useState(data);
   const [search, setSearch] = useState("");
   const [productDetail, setProductDetail] = useState(detailData);
-  const [currentPage, setCurrentPage] = useState("HOME");
+  const [currentPage, setCurrentPage] = useState("Home");
   const [cartItems, setCartItems] = useLocalStorage("cartItems", []);
 
   const productsFiltered = products
@@ -46,7 +46,11 @@ function App() {
   return (
     <>
       <HashRouter>
-        <Header currentPage={currentPage} cartItems={cartItems} />
+        <Header
+          currentPage={currentPage}
+          cartItems={cartItems}
+          updateCurrentPage={updateCurrentPage}
+        />
 
         <Routes>
           <Route

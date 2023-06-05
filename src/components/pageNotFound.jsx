@@ -30,7 +30,7 @@ const NotFoundParagraph = styled.p`
 
 export const PageNotFound = (props) => {
   const handleClick = () => {
-    props.updateCurrentPage("HOME");
+    props.updateCurrentPage("Home");
   };
 
   return (

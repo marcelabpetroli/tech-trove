@@ -71,12 +71,12 @@ export const ProductActions = (props) => {
     <>
       <ActionsContainer>
         <ActionsDiv>
-          <Select value="blue">
+          <Select defaultValue="blue">
             <Option value="">Select Color</Option>
             {colorOptions}
           </Select>
 
-          <Select value="512 MB">
+          <Select defaultValue="512 MB">
             <Option value="">Select Storage</Option>
             {storageOptions}
           </Select>

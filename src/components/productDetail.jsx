@@ -43,7 +43,7 @@ export const ProductDetail = (props) => {
   const params = useParams();
   const productSelected = props.selectedProduct(params.id);
   const handleClick = () => {
-    props.updateCurrentPage("HOME");
+    props.updateCurrentPage("Home");
   };
 
   const renderDetails = () => {

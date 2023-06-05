@@ -4,18 +4,18 @@ import { Link } from "react-router-dom";
 import phone from "../assets/acer-phone.jpg";
 import styled from "styled-components";
 
-const Brand = styled.h2`
-  font-size: 2.2rem;
-  color: #323232;
-  text-transform: uppercase;
+const Card = styled.article`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  letter-spacing: 0.2rem;
-  border-radius: 3rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 1rem;
   transition: all 0.3s;
 
   &:hover {
-    background-color: #323232;
-    color: #c5c5c5;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
   }
 `;
 
@@ -31,11 +31,27 @@ const Image = styled.img`
   }
 `;
 
+const Info = styled.div`
+  margin-top: 1rem;
+`;
+
+const Brand = styled.h2`
+  font-size: 2.2rem;
+  color: #323232;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  transition: all 0.3s;
+`;
+
+const Model = styled.p`
+  font-size: 1.8rem;
+  color: #323232;
+`;
+
 const Price = styled.p`
   font-size: 1.8rem;
   color: #323232;
-  text-transform: uppercase;
-  text-align: center;
+  margin-top: 0.5rem;
 `;
 
 export const ProductItem = ({ item, updateCurrentPage }) => {
@@ -44,19 +60,16 @@ export const ProductItem = ({ item, updateCurrentPage }) => {
   };
 
   return (
-    <>
-      <Link to={`/item/${item.id}`} onClick={handleClick}>
-        <article>
-          <Brand>
-            {item.brand} - {item.model}
-          </Brand>
-          <div>
-            <Image src={phone} alt="Acer smartphone" />
-          </div>
-          <Price>Price {item.price}€</Price>
-        </article>
-      </Link>
-    </>
+    <Link to={`/item/${item.id}`} onClick={handleClick}>
+      <Card>
+        <Image src={phone} alt="Acer smartphone" />
+        <Info>
+          <Brand>{item.brand}</Brand>
+          <Model>Model: {item.model}</Model>
+          <Price>Price: {item.price}€</Price>
+        </Info>
+      </Card>
+    </Link>
   );
 };
 

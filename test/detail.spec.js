@@ -3,8 +3,8 @@ import { describe, it, expect } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { HashRouter } from "react-router-dom";
-import { ProductDetail } from "../components/productDetail";
-import detailData from "../fixtures/single-product.json";
+import { ProductDetail } from "../src/components/productDetail";
+import detailData from "../src/fixtures/single-product.json";
 
 const renderWithRouter = (productDetail, selectedProduct) => {
   render(

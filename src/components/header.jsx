@@ -17,6 +17,12 @@ const HeaderContainer = styled.header`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+  color: #213746;
+  transition: all 0.3s;
+
+  &:hover {
+    color: grey;
+  }
 `;
 
 const Title = styled.h1`
@@ -54,13 +60,36 @@ const CartIcon = styled.i`
   margin-right: 10rem;
 `;
 
+const ArrowIcon = styled.i`
+  font-size: 3rem;
+  color: #7198cb;
+  margin: 0 0.5rem;
+  padding: 1rem;
+`;
+
 export const Header = (props) => {
+  const handleClick = () => {
+    props.updateCurrentPage("Home");
+  };
+
   return (
     <HeaderContainer>
-      <StyledLink to="/">
+      <StyledLink to="/" onClick={handleClick}>
         <Title>TechTrove</Title>
       </StyledLink>
-      <Breadcrumbs>{props.currentPage}</Breadcrumbs>
+      <Breadcrumbs>
+        <StyledLink to="/" onClick={handleClick}>
+          Home
+        </StyledLink>
+        {props.currentPage === "Home" ? (
+          ""
+        ) : (
+          <>
+            <ArrowIcon className="fa-solid fa-angle-right" />
+            {props.currentPage}
+          </>
+        )}
+      </Breadcrumbs>
       <CartContainer>
         <Cart aria-label="cart">
           {props.cartItems && props.cartItems.length === 0
