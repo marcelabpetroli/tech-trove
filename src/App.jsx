@@ -10,7 +10,7 @@ import { ProductDetail } from "./components/productDetail";
 import data from "./fixtures/products.json";
 import detailData from "./fixtures/single-product.json";
 /* Use cases */
-import { filterProducts } from "./usecases/filter-products.usecase";
+import { FilterProducts } from "./usecases/filter-products.usecase";
 /* Custom Hooks */
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
@@ -21,7 +21,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState("Home");
   const [cartItems, setCartItems] = useLocalStorage("cartItems", []);
 
-  const productsFiltered = filterProducts(products, search);
+  const productsFiltered = FilterProducts.execute(products, search);
 
   const handleFilterModelOrBrand = (value) => {
     setSearch(value);
