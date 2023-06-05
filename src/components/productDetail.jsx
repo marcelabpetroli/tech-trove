@@ -24,7 +24,7 @@ const DetailsContent = styled.div`
 
 const StyledLink = styled(Link)`
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 500;
   margin-top: 3rem;
   color: #274b5c;
