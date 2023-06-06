@@ -1,32 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { checkCacheExpiration, updateCache } from "../services/cache";
 
 export const useLocalStorage = (key, initialValue) => {
   const [value, setValue] = useState(() => {
-    const storedValue = localStorage.getItem(key);
+    const cachedValue = checkCacheExpiration(key);
 
-    if (storedValue) {
-      const { data } = JSON.parse(storedValue);
+    if (cachedValue !== null) {
+      const { data } = JSON.parse(cachedValue);
 
-      const expirationTime = 1000 * 60 * 60;
-      const now = Date.now();
-      const setupTime = localStorage.getItem("setupTime");
-
-      if (setupTime === null) {
-        localStorage.setItem("setupTime", now);
-      } else if (now - parseInt(setupTime) > expirationTime) {
-        localStorage.removeItem(key);
-        localStorage.setItem("setupTime", now);
-      } else {
-        return data;
-      }
+      return data;
     }
 
     return initialValue;
   });
 
   useEffect(() => {
-    const dataToStore = { data: value, timestamp: Date.now() };
-    localStorage.setItem(key, JSON.stringify(dataToStore));
+    updateCache(key, value);
   }, [key, value]);
 
   return [value, setValue];
